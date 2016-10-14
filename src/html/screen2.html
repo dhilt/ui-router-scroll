@@ -1,0 +1,43 @@
+<h2>Screen 2</h2>
+
+<div ng-controller="ScrollerController as ctrl" ng-init="ctrl.name = 'screen2'" flex class="fixed-nav">
+
+  <div class="ui-scroll-viewport-2" id="content" ui-scroll-viewport>
+
+    <md-card ui-scroll="post in ctrl.datasource" buffer-size="5" padding="0.3" adapter="ctrl.adapter"
+             class="post">
+
+      <!-- Header -->
+      <md-card-header>
+
+        <!-- Profile Image -->
+        <md-card-avatar>
+          <img data-ng-src="{{post.profileImage}}" class="md-user-avatar">
+        </md-card-avatar>
+
+        <!-- Profile Names -->
+        <md-card-header-text>
+            <span data-ng-bind="post.userName" class="md-title"></span>
+        </md-card-header-text>
+
+      </md-card-header>
+
+      <!-- Description !-->
+      <div class="post-description">
+        <div>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-title" data-ng-bind="post.title"></span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p class="list-group-item-text" data-ng-bind="post.shortDescription"></p>
+          </md-card-content>
+        </div>
+      </div>
+
+    </md-card>
+
+  </div>
+
+</div>

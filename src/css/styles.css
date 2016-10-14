@@ -1,0 +1,17 @@
+.main {
+	padding: 15px;
+}
+
+.active {
+	color: red;
+	font-weight: bold
+}
+
+.ui-scroll-viewport, .ui-scroll-viewport-2 {
+	margin-top: 10px;
+	height: 400px;
+}
+
+.ui-scroll-viewport-2 {
+	background-color: #d3d3d3;
+}
