@@ -26,12 +26,27 @@ myApp.controller('MainController', function (remote) {
   remote.initialize();
 });
 
-myApp.controller('ScrollerController', function (remote) {
+var route = {};
+
+myApp.controller('ScrollerController', function (remote, $scope, $timeout, $state) {
 
   var ctrl = this;
   ctrl.datasource = {};
   ctrl.datasource.get = function (index, count, success) {
     remote.getPosts(index, count, success);
   };
+
+  $scope.$on('$stateChangeSuccess', function () {
+    $timeout(function () {
+      if(route[$state.current.name]) {
+        ctrl.adapter.reload(route[$state.current.name].$index + 1);
+      }
+    }, 100);
+
+  });
+
+  $scope.$on('$stateChangeStart', function () {
+    route[$state.current.name] = ctrl.adapter.topVisibleScope;
+  });
 
 });
